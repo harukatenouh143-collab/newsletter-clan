@@ -6,33 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newsletter Oficial del Clan - Edición Especial</title>
 
+    <!-- Estilos visuales (CSS) Actualizados con nueva paleta -->
     <style>
         :root {
-            /* Paleta de colores parametrizada */
+            /* PALETA DE COLORES CLAN ACTAULIZADA */
             --bg-principal: #0f1115;
+            /* Negro/Oscuro del clan */
             --bg-tarjeta: #161920;
-            --bg-tarjeta-alt: #1f232b;
-            --bg-desplegable: #1d212a;
+            /* Un negro ligeramente más claro para las secciones */
 
-            /* Colores de acento */
+            /* Colores extraídos del pañuelo del clan */
             --acento-rojo: #b90c0c;
-            --acento-rojo-hover: #e0443e;
+            /* El rojo de la tela */
             --acento-azul: #38bdf8;
-            --acento-azul-hover: rgba(56, 189, 248, 0.15);
+            /* El azul grisáceo claro de la tela */
 
             /* Colores de texto */
             --texto-blanco: #ffffff;
             --texto-gris: #a0a5b1;
-
-            /* Dimensiones y bordes */
-            --border-radius: 8px;
-            --border-radius-sm: 6px;
-            --transicion: all 0.25s ease;
-        }
-
-        /* Reset básico y accesibilidad */
-        *, *::before, *::after {
-            box-sizing: border-box;
         }
 
         body {
@@ -40,60 +31,58 @@
             padding: 0;
             background-color: var(--bg-principal);
             color: var(--texto-blanco);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
         }
 
         .contenedor {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Encabezado */
+        /* Encabezado con degradado suave */
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(180deg, var(--bg-tarjeta-alt) 0%, var(--bg-principal) 100%);
+            background: linear-gradient(180deg, #1f232b 0%, var(--bg-principal) 100%);
             border-bottom: 3px solid var(--acento-rojo);
+            /* Borde rojo */
         }
 
         .logo {
             max-width: 120px;
             height: auto;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        h1, h2, h3, h4, h5 {
+        h1,
+        h2,
+        h3 {
             margin-top: 0;
             color: var(--texto-blanco);
         }
 
-        .subtitulo-header {
-            color: var(--texto-gris);
-            margin: 0;
-            font-weight: 500;
-        }
-
-        /* Secciones principales */
+        /* Sección principal con borde ROJO */
         .seccion {
             background-color: var(--bg-tarjeta);
             padding: 25px;
-            margin-top: 24px;
-            border-radius: var(--border-radius);
+            margin-top: 20px;
+            border-radius: 8px;
             border-left: 4px solid var(--acento-rojo);
+            /* Borde ROJO */
         }
 
+        /* Sección secundaria o de información con borde AZUL */
         .seccion-info {
             background-color: var(--bg-tarjeta);
             padding: 25px;
-            margin-top: 24px;
-            border-radius: var(--border-radius);
+            margin-top: 20px;
+            border-radius: 8px;
             border-left: 4px solid var(--acento-azul);
+            /* Borde AZUL GRISÁCEO */
         }
 
-        /* Layout flexible / Grid */
         .cuadricula {
             display: flex;
             flex-wrap: wrap;
@@ -102,161 +91,141 @@
 
         .columna {
             flex: 1;
-            min-width: 260px;
+            min-width: 250px;
         }
 
         .imagen-evento img {
             width: 100%;
-            height: auto;
-            border-radius: var(--border-radius-sm);
+            border-radius: 6px;
             display: block;
-            object-fit: cover;
         }
 
-        /* Componente Desplegable (Details / Summary) */
+        /* Estilos para Manuales y Guías (USANDO AZUL) */
+        .manual-card {
+            background: #21252d;
+            /* Fondo ligeramente diferente */
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--acento-azul);
+            /* Borde AZUL */
+        }
+
+        .manual-card h4 {
+            color: var(--acento-azul);
+            /* Título AZUL */
+        }
+
+        /* Contenedor desplegable */
         details {
-            background-color: var(--bg-desplegable);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: var(--border-radius-sm);
-            margin-bottom: 14px;
-            padding: 14px 18px;
-            transition: var(--transicion);
-        }
-
-        details[open] {
-            border-color: var(--acento-azul);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background-color: #1f232b;
+            border: 1px solid var(--acento-azul);
+            border-radius: 6px;
+            margin-bottom: 12px;
+            padding: 12px 18px;
         }
 
         summary {
-            font-weight: 600;
+            font-weight: bold;
             color: var(--acento-azul);
             cursor: pointer;
-            font-size: 1.05em;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
+            font-size: 1.1em;
         }
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: '▲';
-            font-size: 0.8em;
-            transition: transform 0.25s ease;
-            transform: rotate(180deg);
-        }
-
-        details[open] summary::after {
-            transform: rotate(0deg);
-        }
-
-        /* Grid de tarjetas internas */
+        /* Cuadrícula interna para las 37 especialidades */
         .grid-manuales {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 14px;
-            padding-top: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            padding-top: 15px;
         }
 
         .tarjeta-mini {
             background: var(--bg-tarjeta);
-            padding: 14px;
-            border-radius: var(--border-radius-sm);
+            padding: 12px;
+            border-radius: 6px;
             border-left: 3px solid var(--acento-azul);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: 10px;
         }
 
         .tarjeta-mini h5 {
-            margin: 0;
-            font-size: 0.95em;
-            line-height: 1.3;
+            margin: 0 0 5px 0;
+            color: var(--texto-blanco);
         }
 
-        /* Botones y Enlaces */
+        /* Botones y Enlaces (USANDO ROJO para el principal) */
         .btn {
             display: inline-block;
             background-color: var(--acento-rojo);
-            color: var(--texto-blanco);
-            padding: 10px 20px;
+            /* Fondo ROJO */
+            color: #fff;
+            padding: 12px 24px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: bold;
             border-radius: 4px;
-            transition: var(--transicion);
-            text-align: center;
+            margin-top: 10px;
+            transition: background-color 0.2s;
         }
 
-        .btn:hover, .btn:focus-visible {
-            background-color: var(--acento-rojo-hover);
-            outline: none;
+        .btn:hover {
+            background-color: #e0443e;
+            /* Rojo más claro al pasar el ratón */
         }
 
+        /* Botón secundario con borde azul */
         .btn-secundario {
             background-color: transparent;
-            border: 1px solid var(--acento-azul);
+            border: 2px solid var(--acento-azul);
+            /* Borde AZUL */
             color: var(--acento-azul);
+            /* Texto AZUL */
         }
 
-        .btn-secundario:hover, .btn-secundario:focus-visible {
-            background-color: var(--acento-azul-hover);
+        .btn-secundario:hover {
+            background-color: #a5d1cf33;
+            /* Fondo azul muy transparente */
         }
 
-        /* Clase de utilidad para botones pequeños en tarjetas */
-        .btn-sm {
-            font-size: 0.8em;
-            padding: 6px 12px;
-            align-self: flex-start;
-        }
-
-        /* Pie de página */
         footer {
             text-align: center;
-            padding: 35px 20px;
+            padding: 30px;
             color: var(--texto-gris);
             font-size: 0.9em;
-            border-top: 1px solid var(--bg-tarjeta-alt);
-            margin-top: 40px;
+            border-top: 1px solid #1f232b;
         }
 
         footer a {
             color: var(--texto-blanco);
             margin: 0 10px;
             text-decoration: none;
-            font-weight: 600;
-            transition: var(--transicion);
+            font-weight: bold;
         }
 
         footer a:hover {
             color: var(--acento-rojo);
+            /* Resaltado rojo */
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Encabezado -->
+    <!-- Encabezado del Newsletter (Borde Rojo) -->
     <header>
-        <img src="img/logo.jpg" alt="Logo Oficial del Clan" class="logo">
+        <!-- Asegúrate de tener tu logo con el nombre y extensión correctos en la carpeta img -->
+        <img src="img/logo.jpg" alt="Logo Clan" class="logo">
         <h1>Boletín Informativo del Clan</h1>
-        <p class="subtitulo-header">Edición #1 — Agosto 2026</p>
+        <p style="color: var(--texto-gris);">Edición #1 — Agosto 2026</p>
     </header>
 
-    <main class="contenedor">
+    <div class="contenedor">
 
-        <!-- Mensaje del Liderazgo -->
+        <!-- Mensaje del Liderazgo (SECCIÓN ROJA) -->
         <section class="seccion">
             <h2>Mensaje del Liderazgo</h2>
-            <p>¡Hola a todos! Este mes alcanzamos nuevas metas en la liga competitiva. Queremos felicitar a todas las escuadras por su constante disciplina y asistencia a los entrenamientos. ¡Sigamos así!</p>
+            <p>¡Hola a todos! Este mes alcanzamos nuevas metas en la liga competitiva. Queremos felicitar a todos las
+                escuadras por su constante disciplina y asistencia a los entrenamientos. ¡Sigamos así!</p>
         </section>
 
-        <!-- Actividad Reciente -->
+        <!-- Resumen de Actividad y Logros (SECCIÓN AZUL) -->
         <section class="seccion-info">
             <h2>Actividad Reciente y Logros</h2>
             <div class="cuadricula">
@@ -269,12 +238,14 @@
                     </ul>
                 </div>
                 <div class="columna imagen-evento">
-                    <img src="img/evento.jpg" alt="Captura de pantalla de partida del clan">
+                    <!-- Asegúrate de tener una foto llamada evento.jpg en la carpeta img -->
+                    <img src="img/evento.jpg" alt="Captura de partida del clan">
                 </div>
             </div>
         </section>
 
-        <!-- Manuales y Recurso de Especialidades -->
+        <!-- Sección de Manuales y Recursos de Drive (SECCIÓN AZUL) -->
+        <!-- Sección de Manuales de Especialidades (DESPLEGABLES) -->
         <section class="seccion-info">
             <h2>Manuales de Especialidades (37)</h2>
             <p>Haz clic en un área para desplegar sus manuales correspondientes:</p>
@@ -285,35 +256,51 @@
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Anfitrión y Protocolo</h5>
-                        <a href="https://drive.google.com/file/d/1nqzw_7-Gum1qbth1IhZnVqhdRBZE_xH_/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1nqzw_7-Gum1qbth1IhZnVqhdRBZE_xH_/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Coleccionista</h5>
-                        <a href="https://drive.google.com/file/d/1SzfkTpsBsys5hcYLIV-mUa5qbfBcxmvC/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1SzfkTpsBsys5hcYLIV-mUa5qbfBcxmvC/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Escultor</h5>
-                        <a href="https://drive.google.com/file/d/1ia6MjwtC9SM-P5Uzg5UlFGEq6N9rFV8m/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1ia6MjwtC9SM-P5Uzg5UlFGEq6N9rFV8m/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Filatelia</h5>
-                        <a href="https://drive.google.com/file/d/1VDHFQzK_wfSdi3Zt2UcUNiK8x67RyRgf/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1VDHFQzK_wfSdi3Zt2UcUNiK8x67RyRgf/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Historiador</h5>
-                        <a href="https://drive.google.com/file/d/1k1CaHAsCxLLHDcv9-8PnS9zMM6-rxkW9/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1k1CaHAsCxLLHDcv9-8PnS9zMM6-rxkW9/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Literatura y Poesía</h5>
-                        <a href="https://drive.google.com/file/d/1j4EvyNmEiE33fX69sTcKo4QbKTJNnbit/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1j4EvyNmEiE33fX69sTcKo4QbKTJNnbit/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Música</h5>
-                        <a href="https://drive.google.com/file/d/1sTs_ChtnK2h2cwkpPUhHXaoWlAez69-g/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1sTs_ChtnK2h2cwkpPUhHXaoWlAez69-g/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Pintor</h5>
-                        <a href="https://drive.google.com/file/d/1Fh4C-WY4phMkHfBYbDp9j6XqmMteNH7S/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1Fh4C-WY4phMkHfBYbDp9j6XqmMteNH7S/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                 </div>
             </details>
@@ -324,31 +311,45 @@
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Astronomía</h5>
-                        <a href="https://drive.google.com/file/d/1ZiIdscex0u7RySlsEs2_VSvHbx04D_HC/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1ZiIdscex0u7RySlsEs2_VSvHbx04D_HC/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Biología</h5>
-                        <a href="https://drive.google.com/file/d/1ssZHdOJJx4ApeEaEe6fDSQz4vRkP4hcj/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1ssZHdOJJx4ApeEaEe6fDSQz4vRkP4hcj/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Electrónica</h5>
-                        <a href="https://drive.google.com/file/d/11F6G8vKMjP51SjzWjlerX5eFNsMPqbW3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/11F6G8vKMjP51SjzWjlerX5eFNsMPqbW3/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Física</h5>
-                        <a href="https://drive.google.com/file/d/1Iyg6j_XWkSC_IvHLKN3bJDRgkI2oOJhM/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1Iyg6j_XWkSC_IvHLKN3bJDRgkI2oOJhM/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Informática</h5>
-                        <a href="https://drive.google.com/file/d/1ylnXIS_cS1Ge0Q5ZWWHSN5AvoaaS5mR4/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1ylnXIS_cS1Ge0Q5ZWWHSN5AvoaaS5mR4/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Matemática</h5>
-                        <a href="https://drive.google.com/file/d/1mOONco9mXx2HNQsZGalmzcvhBHQgUxQI/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1mOONco9mXx2HNQsZGalmzcvhBHQgUxQI/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Química</h5>
-                        <a href="https://drive.google.com/file/d/1KFfT6yWNsTAYEqDfpV14dWT7beBNxl_4/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1KFfT6yWNsTAYEqDfpV14dWT7beBNxl_4/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                 </div>
             </details>
@@ -359,31 +360,45 @@
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Actividades Deportivas</h5>
-                        <a href="https://drive.google.com/file/d/16_--unU0u2Lc92XJZQC5Zdag7I203kx2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/16_--unU0u2Lc92XJZQC5Zdag7I203kx2/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Ajedrez</h5>
-                        <a href="https://drive.google.com/file/d/1rDBwwrxbLeoXOpir0tGAr94PM2MH3x1W/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1rDBwwrxbLeoXOpir0tGAr94PM2MH3x1W/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
-                        <h5>Atleta, Fisicoculturismo y Bodyfitness</h5>
-                        <a href="https://drive.google.com/file/d/1DmrDd2BE9TbzsSo1khbzusUblaWWkucv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <h5>Atleta, Fisicoculrismo y Bodyfitness</h5>
+                        <a href="https://drive.google.com/file/d/1DmrDd2BE9TbzsSo1khbzusUblaWWkucv/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Defensa Personal</h5>
-                        <a href="https://drive.google.com/file/d/1PnVh_j7Pl3fP1Y7GsacwNMGgVAx0Qghd/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1PnVh_j7Pl3fP1Y7GsacwNMGgVAx0Qghd/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Maniobras con Cuerdas</h5>
-                        <a href="https://drive.google.com/file/d/16e4Vrgxd61M5hBN2ngIFW3fMCwkSr6gO/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/16e4Vrgxd61M5hBN2ngIFW3fMCwkSr6gO/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Nadador</h5>
-                        <a href="https://drive.google.com/file/d/1P00rY4408GTDO66LM2FPPgOI8RKJNb7m/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1P00rY4408GTDO66LM2FPPgOI8RKJNb7m/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Salvavidas</h5>
-                        <a href="https://drive.google.com/file/d/10SRXFkSZTP4bSdCeVxKOgHV6jGOE0osw/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/10SRXFkSZTP4bSdCeVxKOgHV6jGOE0osw/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                 </div>
             </details>
@@ -394,11 +409,15 @@
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Cocinero</h5>
-                        <a href="https://drive.google.com/file/d/12ACHYBXAShbVHofbYrkMSFjUfttw8JV0/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/12ACHYBXAShbVHofbYrkMSFjUfttw8JV0/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Reciclaje</h5>
-                        <a href="https://drive.google.com/file/d/1BQcO29A3QZxMdyyPDi3hKLSZjN6OOFzI/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1BQcO29A3QZxMdyyPDi3hKLSZjN6OOFzI/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                 </div>
             </details>
@@ -409,7 +428,9 @@
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Defensa Nacional</h5>
-                        <a href="https://drive.google.com/file/d/1ARc3VjzjXXfJulmOC6fnvQKOF01_aTN2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1ARc3VjzjXXfJulmOC6fnvQKOF01_aTN2/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                 </div>
             </details>
@@ -420,48 +441,112 @@
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Arquitectura</h5>
-                        <a href="https://drive.google.com/file/d/1Y5DdBDsGagAygf1EnNCWG8C4zY1f9p92/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1Y5DdBDsGagAygf1EnNCWG8C4zY1f9p92/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Comunicador Social</h5>
-                        <a href="https://drive.google.com/file/d/1Mn7GOd-pwnVkseeavdOYpte0O5FcCPTo/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1Mn7GOd-pwnVkseeavdOYpte0O5FcCPTo/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Mecánica Automotriz</h5>
-                        <a href="https://drive.google.com/file/d/1fjB-YTuqvY6JSDZPKPcDTtDlmDqHx2Ev/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1fjB-YTuqvY6JSDZPKPcDTtDlmDqHx2Ev/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Odontólogo</h5>
-                        <a href="https://drive.google.com/file/d/1e_mDDt1owDjQIcho5Mn7bI9reochBrb9/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1e_mDDt1owDjQIcho5Mn7bI9reochBrb9/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Recreación</h5>
-                        <a href="https://drive.google.com/file/d/1FBQoDQeOYFX1hU6OllGDaqwBo_ulJgzF/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1FBQoDQeOYFX1hU6OllGDaqwBo_ulJgzF/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
                         <h5>Repostería</h5>
-                        <a href="https://drive.google.com/file/d/1SREU4EdT2SW6ckbTFILFsOOI5plPdBUj/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <a href="https://drive.google.com/file/d/1SREU4EdT2SW6ckbTFILFsOOI5plPdBUj/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                     <div class="tarjeta-mini">
-                        <h5>Fotografía</h5>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secundario btn-sm">Ver PDF</a>
+                        <h5>Salud y Producción Animal</h5>
+                        <a href="https://drive.google.com/file/d/1P7-Q1eJfHj0CB_HcszFSGVl5Khghqk6g/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Servicio -->
+            <details>
+                <summary>Servicio (3)</summary>
+                <div class="grid-manuales">
+                    <div class="tarjeta-mini">
+                        <h5>Conservacionismo</h5>
+                        <a href="https://drive.google.com/file/d/1tQY0_0wHwGJ8JwzSQYKBaMZsvycqbLiI/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
+                    </div>
+                    <div class="tarjeta-mini">
+                        <h5>Guía</h5>
+                        <a href="https://drive.google.com/file/d/1bERLabMJS6NoeI_kz9QiHkGrc3jArFtw/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
+                    </div>
+                    <div class="tarjeta-mini">
+                        <h5>Intérprete</h5>
+                        <a href="https://drive.google.com/file/d/1fdMSlG8ehCrsQPdE7AbnRlyuzZZ0IPDa/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Vida al Aire Libre -->
+            <details>
+                <summary>Vida al Aire Libre (2)</summary>
+                <div class="grid-manuales">
+                    <div class="tarjeta-mini">
+                        <h5>Acampador</h5>
+                        <a href="https://drive.google.com/file/d/1nrgSlS5iBO78sXaln5wYbkm8vUeeLKlX/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
+                    </div>
+                    <div class="tarjeta-mini">
+                        <h5>Ofidiología</h5>
+                        <a href="https://drive.google.com/file/d/1yMtaWraNtMWxOWLCdQ3hQkTqlFowWcJ8/view?usp=drive_link"
+                            target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
+                            PDF</a>
                     </div>
                 </div>
             </details>
 
         </section>
+        <!-- Pie de página con Instagram -->
+        <footer>
+            <p>© 2026 Clan Scout - Todos los derechos reservados</p>
+            <a href="https://www.instagram.com/clan_sancayetano?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw==
+" target="_blank" rel="noopener noreferrer" class="btn btn-secundario">
+                Síguenos en Instagram
+            </a>
+            <a href="https://www.tiktok.com/@clan.san.cayetano?is_from_webapp=1&sender_device=pc" target="_blank"
+                rel="noopener noreferrer" class="btn btn-secundario">
+                TikTok
+            </a>
 
-    </main>
-
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2026 Clan - Todos los derechos reservados.</p>
-        <p>
-            <a href="#">Instagram</a> | 
-            <a href="#">TikTok</a> | 
-            <a href="#">Google Drive</a>
-        </p>
-    </footer>
-
-</body>
-</html>
+        </footer>
+        <!-- Botón de acceso a Drive General -->
+        <div style="text-align: center; margin-bottom: 25px;">
+            <p>¿Buscas la carpeta principal de archivos del Clan?</p>
+            <a href="https://drive.google.com/drive/folders/0B2QLj5w2j02GT04wQW1RcTVFejg?resourcekey=0-ThwT6noLzk4-Rki96HewnQ"
+                target="_blank" rel="noopener noreferrer" class="btn" style="padding: 10px 20px; font-size: 0.95em;">
+                📁 Abrir carpeta en Google Drive
+            </a>
+        </div>
