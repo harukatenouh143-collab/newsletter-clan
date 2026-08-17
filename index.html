@@ -12,11 +12,9 @@
             --bg-tarjeta: #161920;
             --bg-card-alt: #121824;
 
-            /* Colores de acento */
-            --acento-rojo: #b90c0c;
-            --acento-rojo-hover: #d61010;
-            --acento-azul: #38bdf8;
+            /* Color de acento unificado (Cian Eléctrico) */
             --accent-cyan: #00a8ff;
+            --accent-cyan-hover: #33b8ff;
 
             /* Color Oficial Google Drive */
             --drive-blue: #1a73e8;
@@ -47,7 +45,7 @@
             text-align: center;
             padding: 40px 20px 25px 20px;
             background: linear-gradient(180deg, #1f232b 0%, var(--bg-principal) 100%);
-            border-bottom: 3px solid var(--acento-rojo);
+            border-bottom: 3px solid var(--accent-cyan);
         }
 
         .logo {
@@ -69,15 +67,7 @@
             padding: 25px;
             margin-top: 20px;
             border-radius: 8px;
-            border-left: 4px solid var(--acento-rojo);
-        }
-
-        .seccion-info {
-            background-color: var(--bg-tarjeta);
-            padding: 25px;
-            margin-top: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--acento-azul);
+            border-left: 4px solid var(--accent-cyan);
         }
 
         .cuadricula {
@@ -97,18 +87,18 @@
             display: block;
         }
 
-        /* Desplegables generales */
-        details {
+        /* Desplegables Manuales de Especialidades */
+        details.manuales-details {
             background-color: #1f232b;
-            border: 1px solid var(--acento-azul);
+            border: 1px solid var(--accent-cyan);
             border-radius: 6px;
             margin-bottom: 12px;
             padding: 12px 18px;
         }
 
-        summary {
+        summary.manuales-summary {
             font-weight: bold;
-            color: var(--acento-azul);
+            color: var(--accent-cyan);
             cursor: pointer;
             font-size: 1.1em;
         }
@@ -124,7 +114,7 @@
             background: var(--bg-tarjeta);
             padding: 12px;
             border-radius: 6px;
-            border-left: 3px solid var(--acento-azul);
+            border-left: 3px solid var(--accent-cyan);
         }
 
         .tarjeta-mini h5 {
@@ -135,34 +125,38 @@
         /* Botones generales */
         .btn {
             display: inline-block;
-            background-color: var(--acento-rojo);
-            color: #fff;
+            background-color: var(--accent-cyan);
+            color: #0f1115;
             padding: 12px 24px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 4px;
             margin-top: 10px;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--acento-rojo-hover);
+            background-color: var(--accent-cyan-hover);
+            box-shadow: 0 0 10px rgba(0, 168, 255, 0.4);
         }
 
         .btn-secundario {
             background-color: transparent;
-            border: 2px solid var(--acento-azul);
-            color: var(--acento-azul);
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
         }
 
         .btn-secundario:hover {
-            background-color: rgba(56, 189, 248, 0.15);
+            background-color: rgba(0, 168, 255, 0.15);
+            color: #ffffff;
         }
 
         /* Estilos Programa Scout Mundial */
         .categoria-details {
-            border-color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
             background-color: var(--bg-principal);
+            border-radius: 6px;
+            margin-bottom: 12px;
             padding: 0;
             overflow: hidden;
         }
@@ -178,6 +172,7 @@
             align-items: center;
             gap: 10px;
             transition: background-color 0.2s ease;
+            cursor: pointer;
         }
 
         .categoria-summary::-webkit-details-marker {
@@ -241,7 +236,7 @@
 
         .btn-action:hover {
             background-color: rgba(0, 168, 255, 0.15);
-            border-color: #33b8ff;
+            border-color: var(--accent-cyan-hover);
             color: #ffffff;
             box-shadow: 0 0 8px rgba(0, 168, 255, 0.4);
         }
@@ -291,7 +286,7 @@
             flex-shrink: 0;
         }
 
-        /* Estilos Redes Sociales en el Pie de Página */
+        /* Redes Sociales en el Pie de Página */
         .redes-contenedor {
             display: flex;
             justify-content: center;
@@ -367,7 +362,7 @@
         </section>
 
         <!-- Resumen de Actividad y Logros -->
-        <section class="seccion-info">
+        <section class="seccion">
             <h2>Actividad Reciente y Logros</h2>
             <div class="cuadricula">
                 <div class="columna">
@@ -385,13 +380,13 @@
         </section>
 
         <!-- Sección de Manuales de Especialidades (37) -->
-        <section class="seccion-info">
+        <section class="seccion">
             <h2>Manuales de Especialidades (37)</h2>
             <p>Haz clic en un área para desplegar sus manuales correspondientes:</p>
 
             <!-- Artes y Hobbies -->
-            <details>
-                <summary>Artes y Hobbies (8)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Artes y Hobbies (8)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Anfitrión y Protocolo</h5>
@@ -445,8 +440,8 @@
             </details>
 
             <!-- Ciencia y Tecnología -->
-            <details>
-                <summary>Ciencia y Tecnología (7)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Ciencia y Tecnología (7)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Astronomía</h5>
@@ -494,8 +489,8 @@
             </details>
 
             <!-- Cultura Física -->
-            <details>
-                <summary>Cultura Física (7)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Cultura Física (7)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Actividades Deportivas</h5>
@@ -543,8 +538,8 @@
             </details>
 
             <!-- Habilidad y Destreza -->
-            <details>
-                <summary>Habilidad y Destreza (2)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Habilidad y Destreza (2)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Cocinero</h5>
@@ -562,8 +557,8 @@
             </details>
 
             <!-- Identidad Nacional -->
-            <details>
-                <summary>Identidad Nacional (1)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Identidad Nacional (1)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Defensa Nacional</h5>
@@ -575,8 +570,8 @@
             </details>
 
             <!-- Preparación para el Trabajo -->
-            <details>
-                <summary>Preparación para el Trabajo (7)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Preparación para el Trabajo (7)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Arquitectura</h5>
@@ -624,8 +619,8 @@
             </details>
 
             <!-- Servicio -->
-            <details>
-                <summary>Servicio (3)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Servicio (3)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Conservacionismo</h5>
@@ -649,8 +644,8 @@
             </details>
 
             <!-- Vida al Aire Libre -->
-            <details>
-                <summary>Vida al Aire Libre (2)</summary>
+            <details class="manuales-details">
+                <summary class="manuales-summary">Vida al Aire Libre (2)</summary>
                 <div class="grid-manuales">
                     <div class="tarjeta-mini">
                         <h5>Acampador</h5>
@@ -670,7 +665,7 @@
         </section>
 
         <!-- Sección de Programa Scout Mundial (PSM) -->
-        <section class="seccion-info">
+        <section class="seccion">
             <h2>Programa Scout Mundial (PSM)</h2>
 
             <!-- 1. Tribu de la Tierra (5) -->
@@ -747,8 +742,8 @@
         <!-- Bloque Independiente de Acceso a Google Drive con Color Azul Oficial -->
         <section class="seccion-drive">
             <h3>¿Buscas la carpeta principal de archivos del Clan?</h3>
-            <a href="https://drive.google.com/drive/folders/0B2QLj5w2j02GT04wQW1RcTVFejg?resourcekey=0-ThwT6noLzk4-Rki96HewnQ"
-                target="_blank" rel="noopener" class="btn-drive-principal">
+            <a href="https://drive.google.com/drive/folders/1FinhIIfNve52OUpAi45K63XbfesdMDiw" target="_blank"
+                rel="noopener" class="btn-drive-principal">
                 <svg viewBox="0 0 87.3 78">
                     <path fill="#ffffff"
                         d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.55z" />
