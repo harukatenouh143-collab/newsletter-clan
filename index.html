@@ -14,8 +14,13 @@
 
             /* Colores de acento */
             --acento-rojo: #b90c0c;
+            --acento-rojo-hover: #d61010;
             --acento-azul: #38bdf8;
             --accent-cyan: #00a8ff;
+
+            /* Color Oficial Google Drive */
+            --drive-blue: #1a73e8;
+            --drive-blue-hover: #1557b0;
 
             /* Colores de texto */
             --texto-blanco: #ffffff;
@@ -141,7 +146,7 @@
         }
 
         .btn:hover {
-            background-color: #e0443e;
+            background-color: var(--acento-rojo-hover);
         }
 
         .btn-secundario {
@@ -151,7 +156,7 @@
         }
 
         .btn-secundario:hover {
-            background-color: #a5d1cf33;
+            background-color: rgba(56, 189, 248, 0.15);
         }
 
         /* Estilos Programa Scout Mundial */
@@ -241,7 +246,52 @@
             box-shadow: 0 0 8px rgba(0, 168, 255, 0.4);
         }
 
-        /* Estilos Redes Sociales y Logos en el Pie de Página */
+        /* Sección Independiente para Google Drive */
+        .seccion-drive {
+            text-align: center;
+            background-color: var(--bg-tarjeta);
+            padding: 35px 20px;
+            margin-top: 35px;
+            border-radius: 8px;
+            border-top: 3px solid var(--drive-blue);
+        }
+
+        .seccion-drive h3 {
+            font-size: 1.35rem;
+            margin-bottom: 22px;
+            font-weight: 600;
+            color: var(--texto-blanco);
+        }
+
+        .btn-drive-principal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: var(--drive-blue);
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(26, 115, 232, 0.35);
+        }
+
+        .btn-drive-principal:hover {
+            background-color: var(--drive-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(26, 115, 232, 0.5);
+        }
+
+        .btn-drive-principal svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Estilos Redes Sociales en el Pie de Página */
         .redes-contenedor {
             display: flex;
             justify-content: center;
@@ -254,7 +304,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: 25px;
             font-weight: bold;
             font-size: 0.95rem;
@@ -282,11 +332,6 @@
             box-shadow: -2px 2px 0px #fe2c55, 2px -2px 0px #25f4ee;
         }
 
-        .btn-drive {
-            background-color: #1a73e8;
-            color: #ffffff;
-        }
-
         .btn-social:hover {
             transform: translateY(-3px);
             opacity: 0.9;
@@ -294,7 +339,7 @@
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 30px 20px;
             color: var(--texto-gris);
             font-size: 0.9em;
             border-top: 1px solid #1f232b;
@@ -699,13 +744,32 @@
 
         </section>
 
+        <!-- Bloque Independiente de Acceso a Google Drive con Color Azul Oficial -->
+        <section class="seccion-drive">
+            <h3>¿Buscas la carpeta principal de archivos del Clan?</h3>
+            <a href="https://drive.google.com/drive/folders/0B2QLj5w2j02GT04wQW1RcTVFejg?resourcekey=0-ThwT6noLzk4-Rki96HewnQ"
+                target="_blank" rel="noopener" class="btn-drive-principal">
+                <svg viewBox="0 0 87.3 78">
+                    <path fill="#ffffff"
+                        d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.55z" />
+                    <path fill="#ffffff"
+                        d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.55h27.5z" />
+                    <path fill="#ffffff"
+                        d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.45 1.2-3 1.2-4.55h-27.5l13.75 23.85z" />
+                    <path fill="#ffffff"
+                        d="m43.65 25 13.75 23.8h27.5c0-1.55-.4-3.1-1.2-4.55l-25.4-44c-.8-1.4-1.95-2.5-3.3-3.3z" />
+                    <path fill="#ffffff" d="m43.65 25h-27.5l13.75 23.8h27.5z" />
+                    <path fill="#ffffff" d="m73.55 76.8h-59.8l13.75-23.8h59.8z" />
+                </svg>
+                Abrir carpeta en Google Drive
+            </a>
+        </section>
+
     </div>
 
-    <!-- Pie de página con enlaces y redes sociales -->
+    <!-- Pie de página exclusivamente para Redes Sociales -->
     <footer>
-        <p style="margin-bottom: 15px; font-weight: bold; color: var(--texto-blanco);">SÍGUENOS EN NUESTRAS REDES Y
-            ACCEDE A LOS RECURSOS
-        </p>
+        <p style="margin-bottom: 15px; font-weight: bold; color: var(--texto-blanco);">SÍGUENOS EN NUESTRAS REDES</p>
         <div class="redes-contenedor">
             <a href="https://www.instagram.com/clan_sancayetano?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw=="
                 target="_blank" rel="noopener" class="btn-social btn-instagram">
@@ -722,19 +786,6 @@
                         d="M12.525 0h3.08c.072 1.96 1.054 3.72 2.6 4.67 1.15.7 2.48 1.01 3.8 1.03v3.18c-1.46-.08-2.88-.56-4.11-1.39-.4-.27-.78-.58-1.12-.92v8.28c0 4.28-3.47 7.75-7.75 7.75-4.28 0-7.75-3.47-7.75-7.75 0-4.09 3.18-7.44 7.21-7.72v3.16c-2.32.25-4.13 2.2-4.13 4.56 0 2.53 2.05 4.58 4.58 4.58 2.53 0 4.58-2.05 4.58-4.58V0z" />
                 </svg>
                 TikTok
-            </a>
-            <a href="https://drive.google.com/drive/folders/0B2QLj5w2j02GT04wQW1RcTVFejg?resourcekey=0-ThwT6noLzk4-Rki96HewnQ"
-                target="_blank" rel="noopener" class="btn-social btn-drive">
-                <svg viewBox="0 0 87.3 78">
-                    <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.55z" />
-                    <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.55h27.5z" />
-                    <path
-                        d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.45 1.2-3 1.2-4.55h-27.5l13.75 23.85z" />
-                    <path d="m43.65 25 13.75 23.8h27.5c0-1.55-.4-3.1-1.2-4.55l-25.4-44c-.8-1.4-1.95-2.5-3.3-3.3z" />
-                    <path d="m43.65 25h-27.5l13.75 23.8h27.5z" />
-                    <path d="m73.55 76.8h-59.8l13.75-23.8h59.8z" />
-                </svg>
-                Google Drive
             </a>
         </div>
         <p style="margin-top: 25px;">&copy; 2026 Clan Scout. Todos los derechos reservados.</p>
