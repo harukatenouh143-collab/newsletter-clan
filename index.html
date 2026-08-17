@@ -5,21 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Newsletter Oficial del Clan - Edición Especial</title>
-
-    <!-- Estilos visuales (CSS) Actualizados con nueva paleta -->
     <style>
         :root {
-            /* PALETA DE COLORES CLAN ACTAULIZADA */
+            /* PALETA DE COLORES CLAN */
             --bg-principal: #0f1115;
-            /* Negro/Oscuro del clan */
             --bg-tarjeta: #161920;
-            /* Un negro ligeramente más claro para las secciones */
+            --bg-card-alt: #121824;
 
-            /* Colores extraídos del pañuelo del clan */
+            /* Colores de acento */
             --acento-rojo: #b90c0c;
-            /* El rojo de la tela */
             --acento-azul: #38bdf8;
-            /* El azul grisáceo claro de la tela */
+            --accent-cyan: #00a8ff;
 
             /* Colores de texto */
             --texto-blanco: #ffffff;
@@ -36,18 +32,17 @@
         }
 
         .contenedor {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Encabezado con degradado suave */
+        /* Encabezado */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 40px 20px 25px 20px;
             background: linear-gradient(180deg, #1f232b 0%, var(--bg-principal) 100%);
             border-bottom: 3px solid var(--acento-rojo);
-            /* Borde rojo */
         }
 
         .logo {
@@ -63,24 +58,21 @@
             color: var(--texto-blanco);
         }
 
-        /* Sección principal con borde ROJO */
+        /* Secciones principales */
         .seccion {
             background-color: var(--bg-tarjeta);
             padding: 25px;
             margin-top: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--acento-rojo);
-            /* Borde ROJO */
         }
 
-        /* Sección secundaria o de información con borde AZUL */
         .seccion-info {
             background-color: var(--bg-tarjeta);
             padding: 25px;
             margin-top: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--acento-azul);
-            /* Borde AZUL GRISÁCEO */
         }
 
         .cuadricula {
@@ -100,22 +92,7 @@
             display: block;
         }
 
-        /* Estilos para Manuales y Guías (USANDO AZUL) */
-        .manual-card {
-            background: #21252d;
-            /* Fondo ligeramente diferente */
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid var(--acento-azul);
-            /* Borde AZUL */
-        }
-
-        .manual-card h4 {
-            color: var(--acento-azul);
-            /* Título AZUL */
-        }
-
-        /* Contenedor desplegable */
+        /* Desplegables generales */
         details {
             background-color: #1f232b;
             border: 1px solid var(--acento-azul);
@@ -131,7 +108,6 @@
             font-size: 1.1em;
         }
 
-        /* Cuadrícula interna para las 37 especialidades */
         .grid-manuales {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -151,11 +127,10 @@
             color: var(--texto-blanco);
         }
 
-        /* Botones y Enlaces (USANDO ROJO para el principal) */
+        /* Botones generales */
         .btn {
             display: inline-block;
             background-color: var(--acento-rojo);
-            /* Fondo ROJO */
             color: #fff;
             padding: 12px 24px;
             text-decoration: none;
@@ -167,21 +142,154 @@
 
         .btn:hover {
             background-color: #e0443e;
-            /* Rojo más claro al pasar el ratón */
         }
 
-        /* Botón secundario con borde azul */
         .btn-secundario {
             background-color: transparent;
             border: 2px solid var(--acento-azul);
-            /* Borde AZUL */
             color: var(--acento-azul);
-            /* Texto AZUL */
         }
 
         .btn-secundario:hover {
             background-color: #a5d1cf33;
-            /* Fondo azul muy transparente */
+        }
+
+        /* Estilos Programa Scout Mundial */
+        .categoria-details {
+            border-color: var(--accent-cyan);
+            background-color: var(--bg-principal);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .categoria-summary {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+            background-color: var(--bg-card-alt);
+            padding: 14px 18px;
+            border-left: 4px solid var(--accent-cyan);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s ease;
+        }
+
+        .categoria-summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .categoria-summary::before {
+            content: "▶";
+            font-size: 0.8rem;
+            transition: transform 0.2s ease;
+        }
+
+        .categoria-details[open] .categoria-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .categoria-summary:hover {
+            background-color: #1a2232;
+        }
+
+        .grid-archivos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .card-item {
+            background-color: var(--bg-card-alt);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 10px;
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--texto-blanco);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .btn-action {
+            display: inline-block;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            background-color: transparent;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background-color: rgba(0, 168, 255, 0.15);
+            border-color: #33b8ff;
+            color: #ffffff;
+            box-shadow: 0 0 8px rgba(0, 168, 255, 0.4);
+        }
+
+        /* Estilos Redes Sociales y Logos en el Pie de Página */
+        .redes-contenedor {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-social svg {
+            width: 18px;
+            height: 18px;
+            fill: #ffffff;
+            flex-shrink: 0;
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #ffffff;
+        }
+
+        .btn-tiktok {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #25f4ee;
+            box-shadow: -2px 2px 0px #fe2c55, 2px -2px 0px #25f4ee;
+        }
+
+        .btn-drive {
+            background-color: #1a73e8;
+            color: #ffffff;
+        }
+
+        .btn-social:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
         }
 
         footer {
@@ -190,42 +298,30 @@
             color: var(--texto-gris);
             font-size: 0.9em;
             border-top: 1px solid #1f232b;
-        }
-
-        footer a {
-            color: var(--texto-blanco);
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            color: var(--acento-rojo);
-            /* Resaltado rojo */
+            margin-top: 40px;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Encabezado del Newsletter (Borde Rojo) -->
+    <!-- Encabezado del Newsletter -->
     <header>
-        <!-- Asegúrate de tener tu logo con el nombre y extensión correctos en la carpeta img -->
         <img src="img/logo.jpg" alt="Logo Clan" class="logo">
         <h1>Boletín Informativo del Clan</h1>
-        <p style="color: var(--texto-gris);">Edición #1 — Agosto 2026</p>
+        <p style="color: var(--texto-gris); margin: 0;">Edición #1 — Agosto 2026</p>
     </header>
 
     <div class="contenedor">
 
-        <!-- Mensaje del Liderazgo (SECCIÓN ROJA) -->
+        <!-- Mensaje del Liderazgo -->
         <section class="seccion">
             <h2>Mensaje del Liderazgo</h2>
-            <p>¡Hola a todos! Este mes alcanzamos nuevas metas en la liga competitiva. Queremos felicitar a todos las
+            <p>¡Hola a todos! Este mes alcanzamos nuevas metas en la liga competitiva. Queremos felicitar a todas las
                 escuadras por su constante disciplina y asistencia a los entrenamientos. ¡Sigamos así!</p>
         </section>
 
-        <!-- Resumen de Actividad y Logros (SECCIÓN AZUL) -->
+        <!-- Resumen de Actividad y Logros -->
         <section class="seccion-info">
             <h2>Actividad Reciente y Logros</h2>
             <div class="cuadricula">
@@ -238,14 +334,12 @@
                     </ul>
                 </div>
                 <div class="columna imagen-evento">
-                    <!-- Asegúrate de tener una foto llamada evento.jpg en la carpeta img -->
                     <img src="img/evento.jpg" alt="Captura de partida del clan">
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Manuales y Recursos de Drive (SECCIÓN AZUL) -->
-        <!-- Sección de Manuales de Especialidades (DESPLEGABLES) -->
+        <!-- Sección de Manuales de Especialidades (37) -->
         <section class="seccion-info">
             <h2>Manuales de Especialidades (37)</h2>
             <p>Haz clic en un área para desplegar sus manuales correspondientes:</p>
@@ -371,7 +465,7 @@
                             PDF</a>
                     </div>
                     <div class="tarjeta-mini">
-                        <h5>Atleta, Fisicoculrismo y Bodyfitness</h5>
+                        <h5>Atleta, Fisicoculturismo y Bodyfitness</h5>
                         <a href="https://drive.google.com/file/d/1DmrDd2BE9TbzsSo1khbzusUblaWWkucv/view?usp=drive_link"
                             target="_blank" class="btn btn-secundario" style="font-size: 0.8em; padding: 6px 10px;">Ver
                             PDF</a>
@@ -529,24 +623,123 @@
             </details>
 
         </section>
-        <!-- Pie de página con Instagram -->
-        <footer>
-            <p>© 2026 Clan Scout - Todos los derechos reservados</p>
-            <a href="https://www.instagram.com/clan_sancayetano?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw==
-" target="_blank" rel="noopener noreferrer" class="btn btn-secundario">
-                Síguenos en Instagram
+
+        <!-- Sección de Programa Scout Mundial (PSM) -->
+        <section class="seccion-info">
+            <h2>Programa Scout Mundial (PSM)</h2>
+
+            <!-- 1. Tribu de la Tierra (5) -->
+            <details class="categoria-details">
+                <summary class="categoria-summary">Tribu de la Tierra (5)</summary>
+                <div class="grid-archivos">
+                    <div class="card-item">
+                        <h3 class="card-title">Tribu de la Tierra - Presentación</h3>
+                        <a href="https://docs.google.com/presentation/d/1LhjPUvnrwX_T1fud4O4Tin7SzgVx3HO4/edit?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PPTX</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Tribu de la Tierra - Desafío Energía Solar</h3>
+                        <a href="https://drive.google.com/file/d/1fVE-FOujkshYONtEPZa8bQao3MIQEYPC/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Tribu de la Tierra - Desafío Embajadores de la Marea de Plástico</h3>
+                        <a href="https://drive.google.com/file/d/1pwJAHbAelJ4pce8iKAvhCIU1v9xrbWNO/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Tribu de la Tierra - Desafío Campeones por la Naturaleza</h3>
+                        <a href="https://drive.google.com/file/d/1UQ7fGpvk5kuus7uVIZFmSiu6bviawwGH/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Tribu de la Tierra - ASV</h3>
+                        <a href="https://drive.google.com/file/d/1jOYKR83y-3LiDkdEZqSwwea0yqjWlfjn/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- 2. Scouts del Mundo (2) -->
+            <details class="categoria-details">
+                <summary class="categoria-summary">Scouts del Mundo (2)</summary>
+                <div class="grid-archivos">
+                    <div class="card-item">
+                        <h3 class="card-title">Scouts del Mundo - Presentación</h3>
+                        <a href="https://drive.google.com/file/d/1p_3EsixVi4yQyHh1LfTSULkZnaxNyPFR/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Scouts del Mundo - Guía para Reportar un Proyecto</h3>
+                        <a href="https://docs.google.com/presentation/d/1caxCW7OaDbqMINHG30Lp6RrmIzHstVwE/edit?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PPTX</a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- 3. Mensajeros de la Paz (3) -->
+            <details class="categoria-details">
+                <summary class="categoria-summary">Mensajeros de la Paz (3)</summary>
+                <div class="grid-archivos">
+                    <div class="card-item">
+                        <h3 class="card-title">Red Global de Mensajeros de la Paz - Círculo de Mensajeros</h3>
+                        <a href="#" target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Mensajeros de la Paz - Presentación 2019</h3>
+                        <a href="https://drive.google.com/file/d/1CHGb5uVtkkNLyShMKRrg80TfqoUZzie6/view?usp=drive_link"
+                            target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-title">Mensajeros de la Paz - Guía para Reportar un Proyecto</h3>
+                        <a href="#" target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                    </div>
+                </div>
+            </details>
+
+        </section>
+
+    </div>
+
+    <!-- Pie de página con enlaces y redes sociales -->
+    <footer>
+        <p style="margin-bottom: 15px; font-weight: bold; color: var(--texto-blanco);">SÍGUENOS EN NUESTRAS REDES Y
+            ACCEDE A LOS RECURSOS
+        </p>
+        <div class="redes-contenedor">
+            <a href="https://www.instagram.com/clan_sancayetano?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==&igsi=ZDNlZDc0MzIxNw=="
+                target="_blank" rel="noopener" class="btn-social btn-instagram">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+                Instagram
             </a>
             <a href="https://www.tiktok.com/@clan.san.cayetano?is_from_webapp=1&sender_device=pc" target="_blank"
-                rel="noopener noreferrer" class="btn btn-secundario">
+                rel="noopener" class="btn-social btn-tiktok">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12.525 0h3.08c.072 1.96 1.054 3.72 2.6 4.67 1.15.7 2.48 1.01 3.8 1.03v3.18c-1.46-.08-2.88-.56-4.11-1.39-.4-.27-.78-.58-1.12-.92v8.28c0 4.28-3.47 7.75-7.75 7.75-4.28 0-7.75-3.47-7.75-7.75 0-4.09 3.18-7.44 7.21-7.72v3.16c-2.32.25-4.13 2.2-4.13 4.56 0 2.53 2.05 4.58 4.58 4.58 2.53 0 4.58-2.05 4.58-4.58V0z" />
+                </svg>
                 TikTok
             </a>
-
-        </footer>
-        <!-- Botón de acceso a Drive General -->
-        <div style="text-align: center; margin-bottom: 25px;">
-            <p>¿Buscas la carpeta principal de archivos del Clan?</p>
             <a href="https://drive.google.com/drive/folders/0B2QLj5w2j02GT04wQW1RcTVFejg?resourcekey=0-ThwT6noLzk4-Rki96HewnQ"
-                target="_blank" rel="noopener noreferrer" class="btn" style="padding: 10px 20px; font-size: 0.95em;">
-                📁 Abrir carpeta en Google Drive
+                target="_blank" rel="noopener" class="btn-social btn-drive">
+                <svg viewBox="0 0 87.3 78">
+                    <path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.55z" />
+                    <path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.55h27.5z" />
+                    <path
+                        d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.45 1.2-3 1.2-4.55h-27.5l13.75 23.85z" />
+                    <path d="m43.65 25 13.75 23.8h27.5c0-1.55-.4-3.1-1.2-4.55l-25.4-44c-.8-1.4-1.95-2.5-3.3-3.3z" />
+                    <path d="m43.65 25h-27.5l13.75 23.8h27.5z" />
+                    <path d="m73.55 76.8h-59.8l13.75-23.8h59.8z" />
+                </svg>
+                Google Drive
             </a>
         </div>
+        <p style="margin-top: 25px;">&copy; 2026 Clan Scout. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
