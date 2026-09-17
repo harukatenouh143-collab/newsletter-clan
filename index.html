@@ -87,6 +87,83 @@
             display: block;
         }
 
+        .biblioteca-archivos {
+            border: 1px dashed #3a4352;
+            border-radius: 8px;
+            padding: 20px;
+            background: var(--bg-card-alt);
+        }
+
+        .selector-archivos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .selector-archivos input[type="file"] {
+            max-width: 100%;
+            color: var(--texto-gris);
+        }
+
+        .selector-archivos input[type="file"]::file-selector-button {
+            background: var(--accent-cyan);
+            border: 0;
+            border-radius: 4px;
+            color: #0f1115;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 10px;
+            padding: 10px 14px;
+        }
+
+        .archivos-seleccionados {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .archivo-preview {
+            background: var(--bg-tarjeta);
+            border: 1px solid #2b3442;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .archivo-preview img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .archivo-info {
+            padding: 12px;
+        }
+
+        .archivo-info strong {
+            display: block;
+            overflow-wrap: anywhere;
+            margin-bottom: 8px;
+        }
+
+        .archivo-pdf {
+            display: grid;
+            place-items: center;
+            height: 150px;
+            background: #202938;
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .archivo-vacio {
+            color: var(--texto-gris);
+            margin: 0;
+        }
+
         /* Estilos Unificados para Desplegables (Especialidades y PSM) */
         details.manuales-details,
         details.categoria-details {
@@ -172,6 +249,13 @@
             background-color: rgba(0, 168, 255, 0.15);
             color: #ffffff;
             box-shadow: 0 0 8px rgba(0, 168, 255, 0.4);
+        }
+
+        .btn-action.disabled {
+            pointer-events: none;
+            cursor: not-allowed;
+            opacity: 0.65;
+            border-style: dashed;
         }
 
         /* Sección Independiente para Google Drive */
@@ -295,20 +379,17 @@
                 iniciar el ciclo de evaluación con los asesores.</p>
         </section>
 
-        <!-- Resumen de Actividad y Logros -->
+        <!-- Biblioteca de documentos e imagenes -->
         <section class="seccion" style="border-left-color: #d9383a;">
-            <h2>Actividad Reciente y Logros</h2>
-            <div class="cuadricula">
-                <div class="columna">
-                    <h3>Rendimiento del Mes</h3>
-                    <ul>
-                        <li><strong>Jugador MVP:</strong> @UsuarioDestacado</li>
-                        <li><strong>Partidas Ganadas:</strong> 18/20</li>
-                        <li><strong>Rango del Clan:</strong> Top 50 Regional</li>
-                    </ul>
+            <h2>Documentos e imágenes</h2>
+            <p>Agrega fotografías o documentos PDF para consultarlos desde esta página.</p>
+            <div class="biblioteca-archivos">
+                <div class="selector-archivos">
+                    <label for="cargador-archivos"><strong>Seleccionar archivos</strong></label>
+                    <input id="cargador-archivos" type="file" accept="image/*,.pdf" multiple>
                 </div>
-                <div class="columna imagen-evento">
-                    <img src="img/evento.jpg" alt="Captura de partida del clan">
+                <div id="archivos-seleccionados" class="archivos-seleccionados" aria-live="polite">
+                    <p class="archivo-vacio">Todavía no has seleccionado archivos.</p>
                 </div>
             </div>
         </section>
@@ -564,7 +645,7 @@
         <!-- Sección de Programa Scout Mundial (PSM) (10)-->
         <section class="seccion">
             <h2>Programa Scout Mundial (PSM) (10)</h2>
-            <p>Haz clic en un área para desplegar su programa correspondientes:</p>
+            <p>Haz clic en un área para desplegar el programa correspondiente:</p>
             <!-- 1. Tribu de la Tierra (5) -->
             <details class="categoria-details">
                 <summary class="categoria-summary">Tribu de la Tierra (5)</summary>
@@ -620,7 +701,7 @@
                 <div class="grid-archivos">
                     <div class="card-item">
                         <h5 class="card-title">Red Global de Mensajeros de la Paz - Círculo de Mensajeros</h5>
-                        <a href="#" target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                        <span class="btn-action disabled" aria-disabled="true">Próximamente</span>
                     </div>
                     <div class="card-item">
                         <h5 class="card-title">Mensajeros de la Paz - Presentación 2019</h5>
@@ -629,7 +710,7 @@
                     </div>
                     <div class="card-item">
                         <h5 class="card-title">Mensajeros de la Paz - Guía para Reportar un Proyecto</h5>
-                        <a href="#" target="_blank" rel="noopener" class="btn-action">Ver PDF</a>
+                        <span class="btn-action disabled" aria-disabled="true">Próximamente</span>
                     </div>
                 </div>
             </details>
@@ -671,7 +752,6 @@
                 </svg>
                 Instagram
             </a>
-            </a>
             <a href="https://www.tiktok.com/@clan.san.cayetano?is_from_webapp=1&sender_device=pc" target="_blank"
                 rel="noopener" class="btn-social btn-tiktok">
                 <svg viewBox="0 0 24 24">
@@ -683,6 +763,56 @@
         </div>
         <p style="margin-top: 25px;">&copy; 2026 Clan Scout. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        const cargador = document.getElementById('cargador-archivos');
+        const listaArchivos = document.getElementById('archivos-seleccionados');
+
+        cargador.addEventListener('change', () => {
+            listaArchivos.replaceChildren();
+
+            if (!cargador.files.length) {
+                const vacio = document.createElement('p');
+                vacio.className = 'archivo-vacio';
+                vacio.textContent = 'Todavía no has seleccionado archivos.';
+                listaArchivos.append(vacio);
+                return;
+            }
+
+            Array.from(cargador.files).forEach((archivo) => {
+                const tarjeta = document.createElement('article');
+                tarjeta.className = 'archivo-preview';
+                const esPdf = archivo.type === 'application/pdf';
+                const url = URL.createObjectURL(archivo);
+
+                if (esPdf) {
+                    const indicador = document.createElement('div');
+                    indicador.className = 'archivo-pdf';
+                    indicador.textContent = 'PDF';
+                    tarjeta.append(indicador);
+                } else {
+                    const imagen = document.createElement('img');
+                    imagen.src = url;
+                    imagen.alt = `Vista previa de ${archivo.name}`;
+                    tarjeta.append(imagen);
+                }
+
+                const informacion = document.createElement('div');
+                informacion.className = 'archivo-info';
+                const nombre = document.createElement('strong');
+                nombre.textContent = archivo.name;
+                const enlace = document.createElement('a');
+                enlace.className = 'btn-action';
+                enlace.href = url;
+                enlace.target = '_blank';
+                enlace.rel = 'noopener';
+                enlace.textContent = esPdf ? 'Abrir PDF' : 'Abrir imagen';
+                informacion.append(nombre, enlace);
+                tarjeta.append(informacion);
+                listaArchivos.append(tarjeta);
+            });
+        });
+    </script>
 
 </body>
 
